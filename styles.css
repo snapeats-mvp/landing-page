@@ -877,3 +877,71 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* ============================================
+   TEXTAREA STYLING
+   ============================================ */
+
+.cta-form textarea {
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+    background: var(--beige-surface);
+    color: var(--dark-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    resize: vertical;
+    transition: var(--transition);
+}
+
+.cta-form textarea::placeholder {
+    color: var(--light-text);
+}
+
+.cta-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(238, 29, 35, 0.1);
+    background: var(--beige-bg);
+}
+
+.cta-form textarea:hover {
+    border-color: var(--primary-color);
+}
+
+/* Adapter le layout du formulaire */
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-form input {
+    width: 100%;
+    min-width: unset;
+}
+
+.cta-form button {
+    width: 100%;
+    min-width: unset;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-form {
+        max-width: 90%;
+    }
+
+    .cta-form input,
+    .cta-form textarea,
+    .cta-form button {
+        width: 100%;
+    }
+}
