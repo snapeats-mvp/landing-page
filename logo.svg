@@ -1,0 +1,36 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SnapEats logo</title>
+  <desc id="desc">A stylized burger inside a camera icon with Instagram-like gradient colors.</desc>
+  <defs>
+    <linearGradient id="igGradient" x1="32" y1="24" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FEDA75"/>
+      <stop offset="25%" stop-color="#FA7E1E"/>
+      <stop offset="55%" stop-color="#D62976"/>
+      <stop offset="80%" stop-color="#962FBF"/>
+      <stop offset="100%" stop-color="#4F5BD5"/>
+    </linearGradient>
+    <linearGradient id="burgerGradient" x1="78" y1="92" x2="178" y2="164" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFD36A"/>
+      <stop offset="100%" stop-color="#FF8A3D"/>
+    </linearGradient>
+    <linearGradient id="cameraInner" x1="60" y1="60" x2="196" y2="196" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1E1E2F"/>
+      <stop offset="100%" stop-color="#11111A"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="24" width="208" height="208" rx="56" fill="url(#igGradient)"/>
+  <rect x="48" y="48" width="160" height="160" rx="44" fill="url(#cameraInner)" fill-opacity="0.92" stroke="rgba(255,255,255,0.14)" stroke-width="3"/>
+  <circle cx="128" cy="128" r="42" fill="#111827" stroke="url(#igGradient)" stroke-width="10"/>
+  <circle cx="128" cy="128" r="26" fill="url(#cameraInner)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+  <circle cx="82" cy="82" r="12" fill="#FFFFFF" fill-opacity="0.18"/>
+  <rect x="88" y="86" width="80" height="16" rx="8" fill="url(#burgerGradient)"/>
+  <path d="M88 98C88 88.0589 105.909 80 128 80C150.091 80 168 88.0589 168 98V104H88V98Z" fill="#F4C36A"/>
+  <rect x="90" y="110" width="76" height="18" rx="9" fill="#8E4B2F"/>
+  <rect x="88" y="130" width="80" height="14" rx="7" fill="#5CB85C"/>
+  <rect x="84" y="146" width="88" height="16" rx="8" fill="url(#burgerGradient)"/>
+  <path d="M94 156H162" stroke="#FFF1C9" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="106" cy="139" r="3" fill="#E4F7C2"/>
+  <circle cx="126" cy="139" r="3" fill="#E4F7C2"/>
+  <circle cx="146" cy="139" r="3" fill="#E4F7C2"/>
+  <path d="M78 168C84.6667 162.667 95.3333 160 108 160H148C160.667 160 171.333 162.667 178 168V174H78V168Z" fill="#F3E3B1"/>
+</svg>

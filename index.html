@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapEats - Transformez vos restes en délices</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <img class="logo-icon" src="logo.svg" alt="Logo SnapEats">
+                    <span class="logo-text">SnapEats</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#probleme">Le Problème</a></li>
+                    <li><a href="#solution">La Solution</a></li>
+                    <li><a href="#avantages">Avantages</a></li>
+                    <li><a href="#cta">S'inscrire dès maintenant</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Une photo<br>Des recettes<br>Zéro gaspillage</h1>
+                <p class="hero-subtitle">Transformez les aliments oubliés de votre frigo en délicieux repas. Économisez de l'argent tout en sauvant la planète.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('cta')">Découvrir l'app</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">⅓</span>
+                        <span class="stat-text">Des étudiants Suisses gaspillent inutilement</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">40-120</span>
+                        <span class="stat-text">CHF/mois perdus</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <img src="images/imageTelHero.jpg" alt="Aperçu de l'application SnapEats">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problème Section -->
+    <section class="probleme" id="probleme">
+        <div class="container">
+            <h2 class="section-title">Le Cycle du Gaspillage</h2>
+            <p class="section-subtitle">Une histoire qui se répète chez des millions de personnes chaque jour</p>
+            
+            <div class="story-cards">
+                <div class="story-card card-1">
+                    <div class="story-number">1</div>
+                    <h3>On rentre à la maison</h3>
+                    <p>Vous ouvrez le frigo après une longue journée. Vous ne savez pas quoi préparer et n'avez pas vraiment envie de cuisiner...</p>
+                    <div class="story-emoji">😫</div>
+                </div>
+                
+                <div class="story-card card-2">
+                    <div class="story-number">2</div>
+                    <h3>La tentation est forte</h3>
+                    <p>Fatigué ou stressé, il est plus facile de commander à manger. 15-20 CHF dépensés sans réfléchir.</p>
+                    <div class="story-emoji">😤</div>
+                </div>
+                
+                <div class="story-card card-3">
+                    <div class="story-number">3</div>
+                    <h3>Les aliments pourrissent</h3>
+                    <p>Pendant ce temps, les aliments achetés restent oubliés au fond du frigo. Légumes, viande périmée, produits laitiers expirés...</p>
+                    <div class="story-emoji">😠</div>
+                </div>
+                
+                <div class="story-card card-4">
+                    <div class="story-number">4</div>
+                    <h3>À la poubelle</h3>
+                    <p>Impossible à manger. Vous les jetez à la poubelle. 30-50 CHF de nourriture gaspillée chaque semaine, sans compter l'impact environnemental.</p>
+                    <div class="story-emoji">😡</div>
+                </div>
+            </div>
+
+            <div class="problem-cta">
+                <button class="btn btn-primary" onclick="scrollToSection('cta')">Je veux réduire mon gaspillage</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <h2 class="section-title">La Solution : SnapEats</h2>
+            <p class="section-subtitle">Aussi simple que : Une app • Une photo • Des recettes géniales</p>
+
+            <div class="solution-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Photographiez</h3>
+                    <p>Prenez une photo des aliments dans votre frigo</p>
+                    <div class="step-icon">📸</div>
+                </div>
+
+                <div class="step-arrow">→</div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Laissez l'IA faire</h3>
+                    <p>Notre IA reconnaît les aliments instantanément</p>
+                    <div class="step-icon">🤖</div>
+                </div>
+
+                <div class="step-arrow">→</div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Cuisinez</h3>
+                    <p>Recevez 5+ recettes adaptées et faciles</p>
+                    <div class="step-icon">👨‍🍳</div>
+                </div>
+            </div>
+
+            <div class="solution-highlight">
+                <p>🎯 <strong>La différence :</strong> Au lieu de jeter des aliments et commander à manger, vous prenez une photo, trouvez 5 recettes délicieuses en 30 secondes et économisez votre argent. Simple, rapide, efficace.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages Section -->
+    <section class="avantages" id="avantages">
+        <div class="container">
+            <h2 class="section-title">Pourquoi SnapEats ?</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Économies Réelles</h3>
+                    <p>Sauvez 40-120 CHF par mois en réduisant le gaspillage et les commandes de livraison.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Ultra Rapide</h3>
+                    <p>Une photo = recettes en 30 secondes. Pas de saisie manuelle, pas de complications.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Impact Environnemental</h3>
+                    <p>Réduisez le gaspillage alimentaire et votre empreinte carbone.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Pour Toute la Famille</h3>
+                    <p>Parfait pour les étudiants, les jeunes actifs et les familles occupées.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Recettes Simples</h3>
+                    <p>Des recettes faciles à préparer, même si vous manquez d'expérience culinaire.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Moins de Stress</h3>
+                    <p>Libérez votre charge mentale. Plus besoin de vous demander "Qu'est-ce que je vais manger ?"</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <h3>SnapEats vs Les Autres Solutions</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Caractéristique</th>
+                            <th>SnapEats</th>
+                            <th>Frigo Magic</th>
+                            <th>Cookpad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Saisie photos automatique</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Génération de recettes</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Lutte contre gaspillage</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Saisie manuelle requise</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Ultra simple d'utilisation</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Public Cible Section -->
+    <section class="public-cible">
+        <div class="container">
+            <h2 class="section-title">Pour Qui ?</h2>
+
+            <div class="personas">
+                <div class="persona-card">
+                    <div class="persona-emoji">👨‍🎓</div>
+                    <h3>Les Étudiants</h3>
+                    <p><strong>Âge :</strong> 18-25 ans</p>
+                    <p><strong>Besoin :</strong> Économiser de l'argent, manger rapidement</p>
+                    <ul>
+                        <li>Budget serré</li>
+                        <li>Manque de temps</li>
+                        <li>Besoin d'inspiration</li>
+                    </ul>
+                </div>
+
+                <div class="persona-card">
+                    <div class="persona-emoji">👩‍💼</div>
+                    <h3>Les Familles Actives</h3>
+                    <p><strong>Âge :</strong> 26-50 ans</p>
+                    <p><strong>Besoin :</strong> Organiser, économiser, réduire le stress</p>
+                    <ul>
+                        <li>Gestion familiale complexe</li>
+                        <li>Gaspillage important</li>
+                        <li>Charge mentale élevée</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à dire adieu au gaspillage ?</h2>
+                <p>Rejoignez les premiers utilisateurs de SnapEats et transformez votre façon de cuisiner.</p>
+                <form class="cta-form" id="cta-form">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre courriel" required>
+                    <input type="number" name="age" placeholder="Votre âge" min="1" max="120" required>
+                    <input type="text" name="profession" placeholder="Votre profession" required>
+                    <button type="submit" class="btn btn-primary">M'avertir au lancement</button>
+                </form>
+                <p class="cta-small">📱 Disponible prochainement sur iOS et Android</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SnapEats</h4>
+                    <p>Réduire le gaspillage alimentaire, un repas à la fois.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens</h4>
+                    <ul>
+                        <li><a href="#probleme">Le Problème</a></li>
+                        <li><a href="#solution">La Solution</a></li>
+                        <li><a href="#avantages">Avantages</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SnapEats. Projet MVP - HEIG-VD. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
