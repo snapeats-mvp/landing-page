@@ -3,297 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnapEats - Réduisez le gaspillage alimentaire avec l'IA</title>
+    <title>SnapEats - Zéro gaspillage alimentaire</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Sticky -->
     <nav class="navbar">
         <div class="container">
             <div class="navbar-content">
                 <div class="logo">
                     <img class="logo-icon" src="logo.svg" alt="Logo SnapEats">
-                    <span class="logo-text">SnapEats</span>
+                    <span>SnapEats</span>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#probleme">Le Problème</a></li>
-                    <li><a href="#solution">La Solution</a></li>
-                    <li><a href="#impact">Impact</a></li>
-                    <li><a href="#cta">Rejoindre</a></li>
+                    <li><a href="#comment">Comment</a></li>
+                    <li><a href="#pourquoi">Pourquoi</a></li>
+                    <li><a href="#equipe">Équipe</a></li>
+                    <li><a href="#cta" style="color: var(--primary-color); font-weight: 600;">Rejoindre</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- HERO : Vidéo + Message Fort -->
+    <section class="hero-video">
+        <div class="hero-video-background">
+            <video autoplay muted loop playsinline class="hero-video-element">
+                <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2c2OWgyMHdpcWhkZnF0eWxjZHhzZ21zOTBiNDc1a2hxd2hkNDduZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/3o6Zt6KHxJTbXCnSvu/giphy.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+        </div>
+        
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Zéro gaspillage alimentaire<br>Commencez dès aujourd'hui</h1>
-                <p class="hero-subtitle">Chaque année, 130-240 CHF de nourriture finissent à la poubelle. SnapEats transforme les aliments oubliés en repas délicieux. Simple, rapide, responsable.</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="scrollToSection('cta')">Réduire mon gaspillage →</button>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">⅓</span>
-                        <span class="stat-text">de la nourriture gaspillée par les étudiants suisses</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5+ kg</span>
-                        <span class="stat-text">de CO2 évité par personne/an</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <img src="images/imageTelHero.jpg" alt="Application SnapEats">
-                    </div>
-                </div>
+            <div class="hero-video-content">
+                <h1 class="hero-title-big">Une Photo.<br>Des Recettes.<br>Zéro Gaspillage.</h1>
+                <p class="hero-subtitle-big">SnapEats transforme vos aliments en repas délicieux via l'IA.</p>
+                <button class="btn btn-primary btn-lg" onclick="document.getElementById('cta').scrollIntoView({behavior: 'smooth'})">
+                    Être Parmi les Premiers
+                </button>
+                <p class="hero-small-text">130-240 CHF économisés chaque année • Impact environnemental mesuré</p>
             </div>
         </div>
     </section>
 
-    <!-- Problème Section -->
-    <section class="probleme" id="probleme">
+    <!-- SECTION : Comment ça marche -->
+    <section id="comment" class="how-it-works">
         <div class="container">
-            <h2 class="section-title">Le Cycle du Gaspillage</h2>
-            <p class="section-subtitle">Comment 38% de nos aliments finissent à la poubelle</p>
+            <h2 class="section-title">3 Étapes. 30 Secondes. Plus de gaspillage.</h2>
             
-            <div class="story-cards">
-                <div class="story-card card-1">
-                    <div class="story-number">1</div>
-                    <h3>Courses sans plan</h3>
-                    <p>Vous achetez des ingrédients sans vision claire. Fruits, légumes, produits laitiers s'accumulent dans le frigo.</p>
-                </div>
-                
-                <div class="story-card card-2">
-                    <div class="story-number">2</div>
-                    <h3>Perte de visibilité</h3>
-                    <p>Au jour le jour, vous oubliez ce que vous avez. Les aliments restent cachés au fond, invisibles.</p>
-                </div>
-                
-                <div class="story-card card-3">
-                    <div class="story-number">3</div>
-                    <h3>Détérioration</h3>
-                    <p>Sans utilisation rapide : pourrissement, péremption. Les fruits moississent, les légumes se déshydratent.</p>
-                </div>
-                
-                <div class="story-card card-4">
-                    <div class="story-number">4</div>
-                    <h3>Jetage inévitable</h3>
-                    <p>Chaque semaine : 30-50 CHF à la poubelle. Annuellement : 130-240 CHF et tons de CO2 évitables.</p>
-                </div>
-            </div>
-
-            <div class="problem-cta">
-                <button class="btn btn-primary" onclick="scrollToSection('cta')">Arrêter ce gaspillage →</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution" id="solution">
-        <div class="container">
-            <h2 class="section-title">La Solution : SnapEats</h2>
-            <p class="section-subtitle">Transformez votre frigo en cuisine sans gaspillage</p>
-
-            <div class="solution-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Photographiez</h3>
-                    <p>Capturez le contenu réel de votre frigo en une photo</p>
+            <div class="steps-visual">
+                <div class="step-card step-1">
                     <div class="step-icon">📸</div>
+                    <h3>Photographiez</h3>
+                    <p>Un clic. Capturez vos aliments réels.</p>
                 </div>
-
-                <div class="step-arrow">→</div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>L'IA détecte</h3>
-                    <p>Reconnaissance instantanée de tous les ingrédients disponibles</p>
-                    <div class="step-icon">🤖</div>
-                </div>
-
-                <div class="step-arrow">→</div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Recettes générées</h3>
-                    <p>5+ propositions délicieuses adaptées à ce que vous avez vraiment</p>
-                    <div class="step-icon">👨‍🍳</div>
-                </div>
-            </div>
-
-            <div class="solution-highlight">
-                <p><strong>Résultat :</strong> Plus de gaspillage. Moins de stress. Repas délicieux chaque soir.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impact Section -->
-    <section class="avantages" id="impact">
-        <div class="container">
-            <h2 class="section-title">Votre Impact</h2>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Réduction Carbone</h3>
-                    <p>Chaque repas : 5+ kg de CO2 épargné. Un véritable impact environnemental.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">♻️</div>
-                    <h3>Zéro Gaspillage</h3>
-                    <p>Utilisez 100% de vos ingrédients. Rien ne finit à la poubelle.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💧</div>
-                    <h3>Eau Préservée</h3>
-                    <p>Les aliments gaspillés = eau gaspillée. Réduisez votre empreinte hydrique.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Ressources Sauvées</h3>
-                    <p>Moins de déchets = moins de terres polluées, moins de cultures perdues.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>Conscience Éco</h3>
-                    <p>Devenir acteur du changement. Adopter un mode de vie durable.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Bonus Économie</h3>
-                    <p>Réduction du gaspillage = économies réelles : 130-240 CHF/an.</p>
-                </div>
-            </div>
-
-            <div class="comparison">
-                <h3>SnapEats vs Les Autres Approches</h3>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Fonctionnalité</th>
-                            <th>SnapEats</th>
-                            <th>Planificateur manuel</th>
-                            <th>Appli recettes classique</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Réduit le gaspillage</td>
-                            <td>✅ Actif</td>
-                            <td>❌ Dépend de vous</td>
-                            <td>❌ Non conçu pour ça</td>
-                        </tr>
-                        <tr>
-                            <td>Photo → Recettes (automatique)</td>
-                            <td>✅</td>
-                            <td>❌</td>
-                            <td>❌</td>
-                        </tr>
-                        <tr>
-                            <td>Gain de temps</td>
-                            <td>✅✅✅ 30 sec</td>
-                            <td>✅ 20 min</td>
-                            <td>✅ 15 min</td>
-                        </tr>
-                        <tr>
-                            <td>Saisie manuelle requise</td>
-                            <td>❌ Aucune</td>
-                            <td>✅ Énorme</td>
-                            <td>✅ Complète</td>
-                        </tr>
-                        <tr>
-                            <td>Focus environnemental</td>
-                            <td>✅ Priorité</td>
-                            <td>❌</td>
-                            <td>❌</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Public Cible Section -->
-    <section class="public-cible">
-        <div class="container">
-            <h2 class="section-title">Pour Qui</h2>
-
-            <div class="personas">
-                <div class="persona-card">
-                    <div class="persona-emoji">👨‍🎓</div>
-                    <h3>Les Étudiants Responsables</h3>
-                    <p><strong>18-25 ans</strong></p>
-                    <p><strong>Motivation :</strong> Agir pour la planète sans effort</p>
-                    <ul>
-                        <li>Budget limité : réduire le gaspillage = économies</li>
-                        <li>Conscience écologique : impact personnel mesurable</li>
-                        <li>Facilité d'utilisation : une app, c'est simple</li>
-                    </ul>
-                </div>
-
-                <div class="persona-card">
-                    <div class="persona-emoji">👨‍👩‍👧‍👦</div>
-                    <h3>Les Familles Engagées</h3>
-                    <p><strong>26-50 ans</strong></p>
-                    <p><strong>Motivation :</strong> Donner l'exemple, réduire pertes</p>
-                    <ul>
-                        <li>Donner l'exemple à ses enfants sur la durabilité</li>
-                        <li>Réduire les pertes alimentaires importantes</li>
-                        <li>Contribution tangible à l'environnement</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Rejoignez la révolution zéro gaspillage</h2>
-                <p>Soyez parmi les premiers à transformer votre consommation alimentaire. Accès prioritaire au lancement.</p>
                 
-                <form class="cta-form" id="cta-form" action="https://formspree.io/f/xkoanybg" method="POST">
-                    <input type="text" name="name" placeholder="Votre nom" required>
-                    <input type="email" name="email" placeholder="Votre email" required>
-                    <textarea name="message" placeholder="Message (optionnel)" rows="4"></textarea>
-                    <button type="submit" class="btn btn-primary">Rejoindre SnapEats</button>
+                <div class="step-divider">→</div>
+                
+                <div class="step-card step-2">
+                    <div class="step-icon">🤖</div>
+                    <h3>L'IA analyse</h3>
+                    <p>Détection intelligente de chaque ingrédient.</p>
+                </div>
+                
+                <div class="step-divider">→</div>
+                
+                <div class="step-card step-3">
+                    <div class="step-icon">👨‍🍳</div>
+                    <h3>Recettes générées</h3>
+                    <p>3 options savoureuses instantanément.</p>
+                </div>
+            </div>
+
+            <div class="cta-mini">
+                <p><strong>Résultat ?</strong> Vous cuisinez ce que vous avez. Rien ne se perd. Vous gagnez du temps et de l'argent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION : Le Problème (données) -->
+    <section id="pourquoi" class="problem-section">
+        <div class="container">
+            <div class="problem-split">
+                <div class="problem-content">
+                    <h2>Le Gaspillage : Un Problème Réel</h2>
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <div class="stat-icon">🗑️</div>
+                            <div>
+                                <strong>130-240 CHF/an</strong>
+                                <p>Jetés par chaque ménage en aliments</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🌍</div>
+                            <div>
+                                <strong>20 kg CO₂/an</strong>
+                                <p>D'empreinte carbone évitable</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">⏰</div>
+                            <div>
+                                <strong>Oubli fréquent</strong>
+                                <p>Les aliments se perdent au fond du frigo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="problem-image">
+                    <div class="illustration-box" style="background: linear-gradient(135deg, var(--accent-color), var(--primary-color)); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 120px;">
+                        🍎📦🥗
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION : Bénéfices -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Votre Avantage</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-number">01</div>
+                    <h3>Économies Réelles</h3>
+                    <p>Réduisez le gaspillage = économies immédiate et mesurable sur votre budget alimentaire mensuel.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-number">02</div>
+                    <h3>Temps Gagné</h3>
+                    <p>Fini la charge mentale "Qu'est-ce qu'on mange ?". Une réponse en 30 secondes, inspirée par vos aliments.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-number">03</div>
+                    <h3>Impact Mesurable</h3>
+                    <p>Voyez votre empreinte carbone diminuer. Chaque repas compte pour la planète.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-number">04</div>
+                    <h3>Recettes Variées</h3>
+                    <p>L'IA propose 3 options savoureuses. Découvrez des combinaisons que vous n'auriez jamais trouvées.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-number">05</div>
+                    <h3>Zéro Effort</h3>
+                    <p>Pas de saisie manuelle, pas de planification. Juste une photo et c'est fait.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-number">06</div>
+                    <h3>Culpabilité Réduite</h3>
+                    <p>Agissez concrètement. Donnez l'exemple à votre famille. Devenez acteur du changement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION : Pour Qui -->
+    <section class="target-audience">
+        <div class="container">
+            <h2 class="section-title">SnapEats c'est pour vous si...</h2>
+            
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-emoji">👨‍🎓</div>
+                    <h3>Étudiant·e Responsable</h3>
+                    <p><strong>18-25 ans</strong></p>
+                    <p>Budget limité, conscience écologique, amour de la simplicité.</p>
+                    <div class="audience-highlight">
+                        <strong>Bénéfice :</strong> Économiser 40 CHF/mois + agir pour la planète
+                    </div>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-emoji">👨‍👩‍👧‍👦</div>
+                    <h3>Parents Engagés</h3>
+                    <p><strong>26-50 ans</strong></p>
+                    <p>Famille, responsabilités, volonté de réduire pertes et gaspillage.</p>
+                    <div class="audience-highlight">
+                        <strong>Bénéfice :</strong> 130-240 CHF/an économisés + l'exemple aux enfants
+                    </div>
+                </div>
+                
+                <div class="audience-card">
+                    <div class="audience-emoji">🌱</div>
+                    <h3>Acteur du Changement</h3>
+                    <p><strong>Tout âge</strong></p>
+                    <p>Vous croyez en la durabilité et voulez un impact environnemental réel.</p>
+                    <div class="audience-highlight">
+                        <strong>Bénéfice :</strong> 20 kg CO₂ évité/an + satisfaction personnelle
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION : L'Équipe -->
+    <section id="equipe" class="team-section">
+        <div class="container">
+            <h2 class="section-title">L'Équipe Derrière SnapEats</h2>
+            <p class="section-subtitle">3 passionnés. 1 vision. Zéro gaspillage.</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">WS</div>
+                    <h3>William Stancu</h3>
+                    <div class="team-role">Facilitateur & Scribe</div>
+                    <p class="team-bio">William assure la coordination et la documentation. Il veille à ce que l'équipe reste alignée sur la mission.</p>
+                    <div class="team-skills">
+                        <span class="skill-badge">Coordination</span>
+                        <span class="skill-badge">Documentation</span>
+                        <span class="skill-badge">Organisation</span>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">DV</div>
+                    <h3>Dario Vasques</h3>
+                    <div class="team-role">Point de Contact & Décideur</div>
+                    <p class="team-bio">Dario pilote la stratégie et représente l'équipe. Il prend les décisions clés pour façonner le projet.</p>
+                    <div class="team-skills">
+                        <span class="skill-badge">Stratégie</span>
+                        <span class="skill-badge">Communication</span>
+                        <span class="skill-badge">Décisions</span>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-avatar">LP</div>
+                    <h3>Lionel Pollien</h3>
+                    <div class="team-role">Développeur & Designer</div>
+                    <p class="team-bio">Lionel conçoit et développe. Il transforme l'idée en produit réel et beau que les utilisateurs adorent.</p>
+                    <div class="team-skills">
+                        <span class="skill-badge">Développement</span>
+                        <span class="skill-badge">Design UX/UI</span>
+                        <span class="skill-badge">Produit</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-values">
+                <h3>Nos Valeurs</h3>
+                <div class="values-grid">
+                    <div class="value">
+                        <strong>Simplicité</strong>
+                        <p>Zéro friction. Une photo = une solution.</p>
+                    </div>
+                    <div class="value">
+                        <strong>Durabilité</strong>
+                        <p>Impact environnemental réel et mesuré.</p>
+                    </div>
+                    <div class="value">
+                        <strong>Innovation</strong>
+                        <p>L'IA au service du quotidien responsable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION : CTA Principal -->
+    <section id="cta" class="cta-main">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Être Parmi les Premiers à Utiliser SnapEats</h2>
+                <p>Lancement Q3 2026 • Accès prioritaire pour les early adopters</p>
+                
+                <form class="cta-form" action="https://formspree.io/f/xkoanybg" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Votre nom complet" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Votre adresse email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Dites-nous : pourquoi vous rejoignez ? (optionnel)" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        ✓ Rejoindre SnapEats
+                    </button>
                 </form>
                 
-                <p class="cta-small">📱 App Android — Lancement Q3 2026 | 🌍 Ensemble, réduisons le gaspillage</p>
+                <p class="cta-footer-text">Nous vous confirmerons votre inscription dans les 24h. Pas de spam, promis.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>SnapEats</h3>
-                    <p>Réduire le gaspillage alimentaire par la technologie. Chaque repas compte.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img class="logo-icon" src="logo.svg" alt="Logo SnapEats" style="width: 32px;">
+                        <span>SnapEats</span>
+                    </div>
+                    <p>Réduire le gaspillage alimentaire par la technologie. Pour un avenir durable.</p>
                 </div>
-                <div class="footer-section">
+                
+                <div class="footer-col">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="#probleme">Le Problème</a></li>
-                        <li><a href="#solution">La Solution</a></li>
-                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#comment">Comment ça marche</a></li>
+                        <li><a href="#pourquoi">Pourquoi SnapEats</a></li>
+                        <li><a href="#equipe">Notre Équipe</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>À Propos</h4>
+                    <ul>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 SnapEats. Projet MVP — HEIG-VD. Pour un avenir sans gaspillage.</p>
+                <p>&copy; 2026 SnapEats. Projet MVP réalisé à HEIG-VD. Ensemble pour zéro gaspillage.</p>
+                <p style="font-size: 0.85rem; opacity: 0.75;">📱 App Android en développement | 🌍 Lancement Q3 2026</p>
             </div>
         </div>
     </footer>
