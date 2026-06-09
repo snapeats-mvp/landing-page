@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapEats - Démo Interactive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FCE9E3, #FFF);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .demo-container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .phone-frame {
+            background: white;
+            border-radius: 40px;
+            border: 12px solid #231F20;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            aspect-ratio: 9/16;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            max-height: 600px;
+        }
+
+        .status-bar {
+            background: #231F20;
+            color: white;
+            padding: 8px 16px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .screen-content {
+            flex: 1;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FCE9E3 0%, #FFFFFF 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            position: relative;
+        }
+
+        .screen-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .snapeats-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: #231F20;
+            font-size: 14px;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #EE1D23, #FEC300);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* STEP 1: CAMERA */
+        .step-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .camera-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse-in 0.8s ease-out;
+        }
+
+        .step-1 h2 {
+            color: #231F20;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .step-1 p {
+            color: #5A5455;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background: #EE1D23;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #C5161B;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(238, 29, 35, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* STEP 2: DETECTION */
+        .step-2 {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .detection-visual {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #FEC300, rgba(254, 195, 0, 0.1));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #FEC300;
+        }
+
+        .scanning-line {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #EE1D23, transparent);
+            animation: scan 2s infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100px); }
+        }
+
+        .ingredients-detected {
+            text-align: center;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        .ingredients-detected h3 {
+            color: #231F20;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .ingredient-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .tag {
+            background: #EE1D23;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .tag:nth-child(1) { animation-delay: 0.1s; }
+        .tag:nth-child(2) { animation-delay: 0.2s; }
+        .tag:nth-child(3) { animation-delay: 0.3s; }
+        .tag:nth-child(4) { animation-delay: 0.4s; }
+        .tag:nth-child(5) { animation-delay: 0.5s; }
+        .tag:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes pop-in {
+            0% {
+                transform: scale(0) rotate(-10deg);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        /* STEP 3: RECIPES */
+        .step-3 {
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .step-3-header {
+            margin-bottom: 15px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .step-3-header h2 {
+            color: #231F20;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .step-3-header p {
+            color: #5A5455;
+            font-size: 12px;
+        }
+
+        .recipes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            border-left: 4px solid #EE1D23;
+            animation: slideUp 0.6s ease-out;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-card:nth-child(1) { animation-delay: 0.1s; }
+        .recipe-card:nth-child(2) { animation-delay: 0.3s; }
+        .recipe-card:nth-child(3) { animation-delay: 0.5s; }
+
+        .recipe-title {
+            font-weight: 600;
+            color: #231F20;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .recipe-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 11px;
+            color: #5A5455;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .recipe-missing {
+            background: linear-gradient(135deg, #FCE9E3, rgba(238, 29, 35, 0.05));
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 10px;
+            color: #EE1D23;
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* ANIMATIONS */
+        @keyframes pulse-in {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .step-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .btn-reset {
+            background: #FEC300;
+            color: #231F20;
+            margin-top: 15px;
+            font-size: 12px;
+            padding: 10px 24px;
+        }
+
+        .btn-reset:hover {
+            background: #FFD60A;
+        }
+
+        .demo-info {
+            margin-top: 20px;
+            text-align: center;
+            color: #5A5455;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .phone-frame {
+                max-height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="phone-frame">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>SnapEats Demo</span>
+                <span>🔋</span>
+            </div>
+
+            <div class="screen-content">
+                <div class="screen-header">
+                    <div class="logo">
+                        <img class="logo-icon" src="logo.svg" alt="Logo SnapEats">
+                    </div>
+                    <span style="font-size: 16px;">⚙️</span>
+                </div>
+
+                <!-- STEP 1: TAKE PHOTO -->
+                <div class="step-1" id="step1">
+                    <div class="camera-icon">📸</div>
+                    <h2>Trouvez votre recette</h2>
+                    <p>Photographiez vos ingrédients et découvrez 5+ recettes délicieuses</p>
+                    <button class="btn" onclick="startDemo()">Prendre une photo</button>
+                </div>
+
+                <!-- STEP 2: DETECTION -->
+                <div class="step-2" id="step2">
+                    <div class="step-indicator">Étape 2/3</div>
+                    <div class="detection-visual">
+                        <div class="scanning-line"></div>
+                        <div class="ingredients-detected">
+                            <h3>Détection en cours...</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: RECIPES -->
+                <div class="step-3" id="step3">
+                    <div class="step-indicator">Résultats</div>
+                    <div class="step-3-header">
+                        <h2>✓ Ingrédients détectés</h2>
+                        <p>5 recettes générées</p>
+                    </div>
+
+                    <div class="recipes-list">
+                        <div class="recipe-card">
+                            <div class="recipe-title">Pâtes Carbonara</div>
+                            <div class="recipe-meta">
+                                <div class="meta-item">20 min</div>
+                                <div class="meta-item">Moyen</div>
+                            </div>
+                            <div class="recipe-missing">Manque 2 ingrédients à acheter</div>
+                        </div>
+
+                        <div class="recipe-card">
+                            <div class="recipe-title">Salade Fraîche</div>
+                            <div class="recipe-meta">
+                                <div class="meta-item">10 min</div>
+                                <div class="meta-item">Facile</div>
+                            </div>
+                            <div class="recipe-missing">Vous avez tous les ingrédients</div>
+                        </div>
+
+                        <div class="recipe-card">
+                            <div class="recipe-title">Soupe Veggie</div>
+                            <div class="recipe-meta">
+                                <div class="meta-item">25 min</div>
+                                <div class="meta-item">Facile</div>
+                            </div>
+                            <div class="recipe-missing">Manque 1 ingrédient à acheter</div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-reset" onclick="resetDemo()">↻ Nouvelle photo</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-info">
+            <p>Démo interactive — L'app en action en 3 étapes</p>
+        </div>
+    </div>
+
+    <script>
+        function startDemo() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'flex';
+
+            // Simulate detection time (2.5 seconds)
+            setTimeout(() => {
+                document.getElementById('step2').style.display = 'none';
+                document.getElementById('step3').style.display = 'flex';
+            }, 2500);
+        }
+
+        function resetDemo() {
+            document.getElementById('step1').style.display = 'flex';
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SnapEats - Zéro gaspillage alimentaire</title>
+    <title>SnapEats - L'IA pour zéro gaspillage alimentaire</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,23 +25,117 @@
         </div>
     </nav>
 
-    <!-- HERO : Vidéo + Message Fort -->
-    <section class="hero-video">
-        <div class="hero-video-background">
-            <video autoplay muted loop playsinline class="hero-video-element">
-                <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2c2OWgyMHdpcWhkZnF0eWxjZHhzZ21zOTBiNDc1a2hxd2hkNDduZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/3o6Zt6KHxJTbXCnSvu/giphy.mp4" type="video/mp4">
-            </video>
-            <div class="hero-video-overlay"></div>
-        </div>
+    <!-- HERO : Texte + Démo Interactive -->
+    <section class="hero-new">
+        <div class="hero-new-background"></div>
         
         <div class="container">
-            <div class="hero-video-content">
-                <h1 class="hero-title-big">Une Photo.<br>Des Recettes.<br>Zéro Gaspillage.</h1>
-                <p class="hero-subtitle-big">SnapEats transforme vos aliments en repas délicieux via l'IA.</p>
-                <button class="btn btn-primary btn-lg" onclick="document.getElementById('cta').scrollIntoView({behavior: 'smooth'})">
-                    Être Parmi les Premiers
-                </button>
-                <p class="hero-small-text">130-240 CHF économisés chaque année • Impact environnemental mesuré</p>
+            <div class="hero-new-grid">
+                <!-- LEFT: Content -->
+                <div class="hero-new-content">
+                    <h1 class="hero-title-big">Une Photo.<br>Des Recettes.<br>Zéro Gaspillage.</h1>
+                    <p class="hero-subtitle-big">Photographiez vos aliments, l'IA détecte les ingrédients, 5+ recettes s'affichent. Instantanément.</p>
+                    
+                    <div class="hero-ctas">
+                        <button class="btn btn-primary btn-lg" onclick="document.getElementById('cta').scrollIntoView({behavior: 'smooth'})">
+                            Être Parmi les Premiers →
+                        </button>
+                        <button class="btn btn-secondary btn-lg" onclick="document.getElementById('comment').scrollIntoView({behavior: 'smooth'})">
+                            Voir Comment
+                        </button>
+                    </div>
+
+                    <div class="hero-stats-new">
+                        <div class="stat-chip">
+                            <strong>130-240 CHF</strong>
+                            <span>économisés/an</span>
+                        </div>
+                        <div class="stat-chip">
+                            <strong>20 kg CO₂</strong>
+                            <span>évité/an</span>
+                        </div>
+                        <div class="stat-chip">
+                            <strong>30 sec</strong>
+                            <span>pour agir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Interactive Demo -->
+                <div class="hero-demo-container">
+                    <div class="phone-frame-hero">
+                        <div class="status-bar">
+                            <span>9:41</span>
+                            <span>SnapEats</span>
+                            <span>🔋</span>
+                        </div>
+
+                        <div class="screen-content">
+                            <div class="screen-header">
+                                <div class="snapeats-logo">
+                                    <div class="logo-icon">S</div>
+                                    SnapEats
+                                </div>
+                                <span style="font-size: 14px;">⚙️</span>
+                            </div>
+
+                            <!-- STEP 1: TAKE PHOTO -->
+                            <div class="step-1" id="demo-step1">
+                                <div class="camera-icon">📸</div>
+                                <h2>Trouvez votre recette</h2>
+                                <p>Photographiez vos ingrédients</p>
+                                <button class="btn btn-demo" onclick="startDemoHero()">Prendre une photo</button>
+                            </div>
+
+                            <!-- STEP 2: DETECTION -->
+                            <div class="step-2" id="demo-step2" style="display: none;">
+                                <div class="detection-visual">
+                                    <div class="scanning-line"></div>
+                                    <div class="ingredients-detected">
+                                        <h3>Détection en cours...</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STEP 3: RECIPES -->
+                            <div class="step-3" id="demo-step3" style="display: none;">
+                                <div class="step-3-header">
+                                    <h2>✓ Recettes générées</h2>
+                                    <p>3 options délicieuses</p>
+                                </div>
+
+                                <div class="recipes-list">
+                                    <div class="recipe-card">
+                                        <div class="recipe-title">🍝 Pâtes Carbonara</div>
+                                        <div class="recipe-meta">
+                                            <span>20 min</span>
+                                            <span>Moyen</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="recipe-card">
+                                        <div class="recipe-title">🥗 Salade Fraîche</div>
+                                        <div class="recipe-meta">
+                                            <span>10 min</span>
+                                            <span>Facile</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="recipe-card">
+                                        <div class="recipe-title">🍲 Soupe Veggie</div>
+                                        <div class="recipe-meta">
+                                            <span>25 min</span>
+                                            <span>Facile</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-reset" onclick="resetDemoHero()">↻ Nouvelle photo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-shine"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -71,7 +165,7 @@
                 <div class="step-card step-3">
                     <div class="step-icon">👨‍🍳</div>
                     <h3>Recettes générées</h3>
-                    <p>3 options savoureuses instantanément.</p>
+                    <p>5+ options savoureuses instantanément.</p>
                 </div>
             </div>
 
@@ -103,6 +197,13 @@
                             </div>
                         </div>
                         <div class="stat-item">
+                            <div class="stat-icon">💧</div>
+                            <div>
+                                <strong>2,200 L/an</strong>
+                                <p>D'eau gaspillée avec les aliments</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
                             <div class="stat-icon">⏰</div>
                             <div>
                                 <strong>Oubli fréquent</strong>
@@ -112,7 +213,7 @@
                     </div>
                 </div>
                 <div class="problem-image">
-                    <div class="illustration-box" style="background: linear-gradient(135deg, var(--accent-color), var(--primary-color)); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 120px;">
+                    <div class="illustration-box" style="background: linear-gradient(135deg, var(--accent-color), var(--primary-color)); height: 400px; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 80px;">
                         🍎📦🥗
                     </div>
                 </div>
@@ -128,7 +229,7 @@
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-number">01</div>
-                    <h3>Économies Réelles</h3>
+                    <h3>💰 Économies Réelles</h3>
                     <p>Réduisez le gaspillage = économies immédiate et mesurable sur votre budget alimentaire mensuel.</p>
                 </div>
                 
@@ -147,7 +248,7 @@
                 <div class="benefit-card">
                     <div class="benefit-number">04</div>
                     <h3>Recettes Variées</h3>
-                    <p>L'IA propose 3 options savoureuses. Découvrez des combinaisons que vous n'auriez jamais trouvées.</p>
+                    <p>L'IA propose 5+ options savoureuses. Découvrez des combinaisons que vous n'auriez jamais trouvées.</p>
                 </div>
                 
                 <div class="benefit-card">
@@ -183,7 +284,7 @@
                 
                 <div class="audience-card">
                     <div class="audience-emoji">👨‍👩‍👧‍👦</div>
-                    <h3>Parents Engagés</h3>
+                    <h3>Parent Engagé·e</h3>
                     <p><strong>26-50 ans</strong></p>
                     <p>Famille, responsabilités, volonté de réduire pertes et gaspillage.</p>
                     <div class="audience-highlight">
@@ -334,5 +435,23 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Interactive demo functions
+        function startDemoHero() {
+            document.getElementById('demo-step1').style.display = 'none';
+            document.getElementById('demo-step2').style.display = 'flex';
+
+            setTimeout(() => {
+                document.getElementById('demo-step2').style.display = 'none';
+                document.getElementById('demo-step3').style.display = 'flex';
+            }, 2500);
+        }
+
+        function resetDemoHero() {
+            document.getElementById('demo-step1').style.display = 'flex';
+            document.getElementById('demo-step2').style.display = 'none';
+            document.getElementById('demo-step3').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
