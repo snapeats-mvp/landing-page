@@ -1,7 +1,3 @@
-/* ============================================
-   FONCTIONNALITÉS JAVASCRIPT - LANDING PAGE
-   ============================================ */
-
 // Smooth scroll animation
 function smoothScroll(targetId) {
     const target = document.getElementById(targetId);
@@ -38,12 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Video autoplay backup
     ensureVideoAutoplay();
+    
+    // Initialize carousel - Set first step as active
+    initializeCarousel();
 });
 
 // Initialize scroll animations
 function initializeScrollAnimations() {
     const animatedElements = document.querySelectorAll(
-        '.section-title, .benefit-card, .team-card, .audience-card, .step-card'
+        '.section-title, .benefit-card, .team-card, .audience-card'
     );
     
     animatedElements.forEach((el, index) => {
@@ -139,7 +138,7 @@ if ('IntersectionObserver' in window === false) {
 console.log('SnapEats Landing Page - Loaded Successfully ✓');
 
 // ============================================
-// CAROUSEL FUNCTIONALITY - HOW IT WORKS
+// CAROUSEL FUNCTIONALITY - HOW IT WORKS (FIXED)
 // ============================================
 
 let currentStep = 1;
@@ -167,40 +166,89 @@ function goToStep(stepNumber) {
     // Validate step number
     if (stepNumber < 1 || stepNumber > totalSteps) return;
 
-    // Hide all steps
+    console.log('🔄 Navigating to step:', stepNumber);
+
+    // Update all steps
     for (let i = 1; i <= totalSteps; i++) {
         const stepElement = document.getElementById(`step-${i}`);
-        const indicator = document.querySelectorAll('.indicator')[i - 1];
+        
+        if (!stepElement) {
+            console.warn(`⚠️  Element #step-${i} not found`);
+            continue;
+        }
+
+        // Remove all animation classes
+        stepElement.classList.remove('active', 'prev-step');
 
         if (i === stepNumber) {
-            // Show current step
+            // Current step - show it
             stepElement.classList.add('active');
-            stepElement.classList.remove('prev-step');
-            indicator.classList.add('active');
+            console.log(`✓ Step ${i} is now ACTIVE`);
         } else if (i < stepNumber) {
-            // Previous steps (come from left)
-            stepElement.classList.remove('active');
+            // Previous step - show as coming from left
             stepElement.classList.add('prev-step');
-            indicator.classList.remove('active');
+            console.log(`• Step ${i} is PREV`);
         } else {
-            // Next steps (go to right)
-            stepElement.classList.remove('active', 'prev-step');
-            indicator.classList.remove('active');
+            // Next step - hidden to the right
+            console.log(`◦ Step ${i} is HIDDEN`);
         }
     }
+
+    // Update indicators
+    const indicators = document.querySelectorAll('.carousel-indicators .indicator');
+    console.log(`📍 Found ${indicators.length} indicators`);
+    
+    indicators.forEach((indicator, index) => {
+        indicator.classList.remove('active');
+        if (index + 1 === stepNumber) {
+            indicator.classList.add('active');
+            console.log(`✓ Indicator ${index + 1} is active`);
+        }
+    });
 
     currentStep = stepNumber;
 }
 
+// Initialize carousel on page load
+function initializeCarousel() {
+    console.log('🎠 Initializing carousel...');
+    
+    // Make sure first step is visible
+    const step1 = document.getElementById('step-1');
+    if (step1) {
+        step1.classList.add('active');
+        step1.classList.remove('prev-step');
+        console.log('✓ Step 1 initialized as active');
+    }
+    
+    // Make sure other steps are hidden
+    for (let i = 2; i <= totalSteps; i++) {
+        const step = document.getElementById(`step-${i}`);
+        if (step) {
+            step.classList.remove('active', 'prev-step');
+            console.log(`✓ Step ${i} initialized as hidden`);
+        }
+    }
+    
+    // Ensure first indicator is active
+    const indicators = document.querySelectorAll('.carousel-indicators .indicator');
+    indicators.forEach((ind, idx) => {
+        if (idx === 0) {
+            ind.classList.add('active');
+        } else {
+            ind.classList.remove('active');
+        }
+    });
+    
+    currentStep = 1;
+    console.log('✓ Carousel initialized successfully');
+}
+
 // Keyboard navigation
 document.addEventListener('keydown', function(event) {
-    // Only trigger if carousel is in view
-    const carousel = document.querySelector('.carousel-container');
-    if (carousel) {
-        if (event.key === 'ArrowRight') {
-            nextStep();
-        } else if (event.key === 'ArrowLeft') {
-            previousStep();
-        }
+    if (event.key === 'ArrowRight') {
+        nextStep();
+    } else if (event.key === 'ArrowLeft') {
+        previousStep();
     }
 });
