@@ -137,3 +137,70 @@ if ('IntersectionObserver' in window === false) {
 
 // Utility: Log page info (debug)
 console.log('SnapEats Landing Page - Loaded Successfully ✓');
+
+// ============================================
+// CAROUSEL FUNCTIONALITY - HOW IT WORKS
+// ============================================
+
+let currentStep = 1;
+const totalSteps = 3;
+
+function nextStep() {
+    if (currentStep < totalSteps) {
+        goToStep(currentStep + 1);
+    } else {
+        // Loop back to first step
+        goToStep(1);
+    }
+}
+
+function previousStep() {
+    if (currentStep > 1) {
+        goToStep(currentStep - 1);
+    } else {
+        // Loop to last step
+        goToStep(totalSteps);
+    }
+}
+
+function goToStep(stepNumber) {
+    // Validate step number
+    if (stepNumber < 1 || stepNumber > totalSteps) return;
+
+    // Hide all steps
+    for (let i = 1; i <= totalSteps; i++) {
+        const stepElement = document.getElementById(`step-${i}`);
+        const indicator = document.querySelectorAll('.indicator')[i - 1];
+
+        if (i === stepNumber) {
+            // Show current step
+            stepElement.classList.add('active');
+            stepElement.classList.remove('prev-step');
+            indicator.classList.add('active');
+        } else if (i < stepNumber) {
+            // Previous steps (come from left)
+            stepElement.classList.remove('active');
+            stepElement.classList.add('prev-step');
+            indicator.classList.remove('active');
+        } else {
+            // Next steps (go to right)
+            stepElement.classList.remove('active', 'prev-step');
+            indicator.classList.remove('active');
+        }
+    }
+
+    currentStep = stepNumber;
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(event) {
+    // Only trigger if carousel is in view
+    const carousel = document.querySelector('.carousel-container');
+    if (carousel) {
+        if (event.key === 'ArrowRight') {
+            nextStep();
+        } else if (event.key === 'ArrowLeft') {
+            previousStep();
+        }
+    }
+});

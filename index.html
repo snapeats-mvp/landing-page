@@ -106,7 +106,7 @@
 
                                 <div class="recipes-list">
                                     <div class="recipe-card">
-                                        <div class="recipe-title">🍝 Pâtes Carbonara</div>
+                                        <div class="recipe-title">Pâtes Carbonara</div>
                                         <div class="recipe-meta">
                                             <span>20 min</span>
                                             <span>Moyen</span>
@@ -114,7 +114,7 @@
                                     </div>
 
                                     <div class="recipe-card">
-                                        <div class="recipe-title">🥗 Salade Fraîche</div>
+                                        <div class="recipe-title">Salade Fraîche</div>
                                         <div class="recipe-meta">
                                             <span>10 min</span>
                                             <span>Facile</span>
@@ -122,7 +122,7 @@
                                     </div>
 
                                     <div class="recipe-card">
-                                        <div class="recipe-title">🍲 Soupe Veggie</div>
+                                        <div class="recipe-title">Soupe Veggie</div>
                                         <div class="recipe-meta">
                                             <span>25 min</span>
                                             <span>Facile</span>
@@ -145,28 +145,47 @@
         <div class="container">
             <h2 class="section-title">3 Étapes. 30 Secondes. Plus de gaspillage.</h2>
             
-            <div class="steps-visual">
-                <div class="step-card step-1">
-                    <div class="step-icon">📸</div>
-                    <h3>Photographiez</h3>
-                    <p>Un clic. Capturez vos aliments réels.</p>
+            <div class="carousel-container">
+                <!-- Left Arrow -->
+                <button class="carousel-arrow carousel-arrow-left" onclick="previousStep()" aria-label="Étape précédente">
+                    ←
+                </button>
+
+                <!-- Carousel Steps -->
+                <div class="steps-carousel">
+                    <div class="step-card step-card-carousel active" id="step-1">
+                        <div class="step-icon">📸</div>
+                        <h3>Étape 1 : Photographiez</h3>
+                        <p>Un clic. Capturez vos aliments réels.</p>
+                        <div class="step-counter">1 / 3</div>
+                    </div>
+                    
+                    <div class="step-card step-card-carousel" id="step-2">
+                        <div class="step-icon">🤖</div>
+                        <h3>Étape 2 : L'IA analyse</h3>
+                        <p>Détection intelligente de chaque ingrédient.</p>
+                        <div class="step-counter">2 / 3</div>
+                    </div>
+                    
+                    <div class="step-card step-card-carousel" id="step-3">
+                        <div class="step-icon">👨‍🍳</div>
+                        <h3>Étape 3 : Recettes générées</h3>
+                        <p>3 options savoureuses instantanément.</p>
+                        <div class="step-counter">3 / 3</div>
+                    </div>
                 </div>
-                
-                <div class="step-divider">→</div>
-                
-                <div class="step-card step-2">
-                    <div class="step-icon">🤖</div>
-                    <h3>L'IA analyse</h3>
-                    <p>Détection intelligente de chaque ingrédient.</p>
-                </div>
-                
-                <div class="step-divider">→</div>
-                
-                <div class="step-card step-3">
-                    <div class="step-icon">👨‍🍳</div>
-                    <h3>Recettes générées</h3>
-                    <p>5+ options savoureuses instantanément.</p>
-                </div>
+
+                <!-- Right Arrow -->
+                <button class="carousel-arrow carousel-arrow-right" onclick="nextStep()" aria-label="Étape suivante">
+                    →
+                </button>
+            </div>
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button class="indicator active" onclick="goToStep(1)"></button>
+                <button class="indicator" onclick="goToStep(2)"></button>
+                <button class="indicator" onclick="goToStep(3)"></button>
             </div>
 
             <div class="cta-mini">
@@ -175,12 +194,13 @@
         </div>
     </section>
 
+
     <!-- SECTION : Le Problème (données) -->
     <section id="pourquoi" class="problem-section">
         <div class="container">
             <div class="problem-split">
                 <div class="problem-content">
-                    <h2>Le Gaspillage : Un Problème Réel</h2>
+                    <h2>Le Gaspillage : Un Réel Problème</h2>
                     <div class="stats-list">
                         <div class="stat-item">
                             <div class="stat-icon">🗑️</div>
@@ -194,13 +214,6 @@
                             <div>
                                 <strong>20 kg CO₂/an</strong>
                                 <p>D'empreinte carbone évitable</p>
-                            </div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">💧</div>
-                            <div>
-                                <strong>2,200 L/an</strong>
-                                <p>D'eau gaspillée avec les aliments</p>
                             </div>
                         </div>
                         <div class="stat-item">
@@ -229,7 +242,7 @@
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-number">01</div>
-                    <h3>💰 Économies Réelles</h3>
+                    <h3>Économies Réelles</h3>
                     <p>Réduisez le gaspillage = économies immédiate et mesurable sur votre budget alimentaire mensuel.</p>
                 </div>
                 
@@ -274,7 +287,7 @@
             <div class="audience-grid">
                 <div class="audience-card">
                     <div class="audience-emoji">👨‍🎓</div>
-                    <h3>Étudiant·e Responsable</h3>
+                    <h3>Étudiant·e</h3>
                     <p><strong>18-25 ans</strong></p>
                     <p>Budget limité, conscience écologique, amour de la simplicité.</p>
                     <div class="audience-highlight">
@@ -284,7 +297,7 @@
                 
                 <div class="audience-card">
                     <div class="audience-emoji">👨‍👩‍👧‍👦</div>
-                    <h3>Parent Engagé·e</h3>
+                    <h3>Parent</h3>
                     <p><strong>26-50 ans</strong></p>
                     <p>Famille, responsabilités, volonté de réduire pertes et gaspillage.</p>
                     <div class="audience-highlight">
